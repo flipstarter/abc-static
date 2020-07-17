@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="es"><head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Preload assets -->
+  <link rel="preload" href="js/application.js" as="script">
+  <link rel="preload" href="img/logo.png" as="image">
+  <link rel="preload" href="img/clouds.png" as="image">
+  <link rel="preload" href="img/grass.png" as="image">
+  <link rel="preload" href="img/water.png" as="image">
+  <link rel="preload" href="fonts/cairo.woff2" as="font" crossorigin="">
+  <link rel="preload" href="fonts/icons.woff" as="font" crossorigin="">
+
+  <!-- preload fonts -->
+  <style>
+    /** Fonts **/
+    @font-face
+    {
+      font-display: swap;
+      font-family: 'Cairo';
+      font-style: normal;
+      font-weight: 400;
+      src: local('Cairo'), local('Cairo-Regular'), url('fonts/cairo.woff2') format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+
+    @font-face
+    {
+      font-display: swap;
+      font-family: 'icons';
+      font-weight: normal;
+      font-style: normal;
+      font-display: block;
+      src: url('fonts/icons.woff') format('woff');
+    }
+  </style>
+
+  <!-- -->
+  <link rel="icon" href="img/logo.png">
+
+  <link href="css/materialize.min.css" type="text/css" rel="stylesheet">
+  <link href="css/style.css" type="text/css" rel="stylesheet">
+
+  <!-- Website metadata -->
+  <title>Bitcoin ABC, Flipstarter</title>
+  <meta property="og:title" content="Flipstarter: Bitcoin ABC">
+  <meta property="og:description" content="Bitcoin ABC Flipstarter Funding Campaign">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://abc.flipstarter.cash/">
+  <meta property="og:image" content="https://fund.bitcoinabc.org/wp-content/uploads/2020/04/BitcoinABC-flipstarter.png">
+  <meta property="og:image:alt" content="Bitcoin ABC 2020 Funding Campaign">
+  <meta property="og:article:section" content="Technology">
+  <meta property="og:article:tag" content="Bitcoin">
+  <meta property="og:article:tag" content="Bitcoin ABC">
+  <meta property="og:article:tag" content="Bitcoin Cash">
+  <meta property="og:article:tag" content="BCH">
+  <meta property="og:article:tag" content="Cryptocurrencies">
+  <meta property="og:article:tag" content="Fundraising">
+  <meta property="og:article:tag" content="Infrastructure">
+</head>
+<body class="clouds">
+  <div class="grass">
+    <div class="background">
+
+      <!-- Site header -->
+      <header id="header" class="container row center">
+        <h1 class="cols s12 m12 l12">
+          <img src="img/logo.png" alt="Flipstarter logotype">
+          <span>Flipstarter</span>
+        </h1>
+        <p class="col s12 m12 l12" data-string="siteIntro">La financiación de la infraestructura de Bitcoin Cash es importante, y la diversidad de esa infraestructura crea un ecosistema resiliente. Flipstarter proporciona una vía para que cualquier proyecto se relacione con posibles contribuidores de una manera que fomente responsabilidad para los proyectos y ecuanimidad para los contribuidores.</p>
+        <ul class="col s10 m10 l10 push-s1 push-m1 push-l1" style="display: flex; justify-content: center; text-align: left;">
+          <li class="col">
+            <a class="valign-wrapper" target="_blank" href="https://read.cash/@flipstarter/introducing-flipstarter-31ce86f3">
+              <i class="icon-info"></i>
+              &nbsp;
+              <span data-string="linkWhatIs">¿Qué es Flipstarter?</span>
+            </a>
+          </li>
+          <li class="col">
+            <a class="valign-wrapper" target="_blank" href="https://read.cash/@flipstarter/how-to-support-a-flipstarter-campaign-f27240d9">
+              <i class="icon-info"></i>
+              &nbsp;
+              <span data-string="linkHowTo">¿Cómo usar Flipstarter?</span>
+            </a>
+          </li>
+          <li class="col">
+            <a class="valign-wrapper" target="_blank" href="https://read.cash/@flipstarter/flipstarter-faq-66c56b03">
+              <i class="icon-info"></i>
+              &nbsp;
+              <span data-string="linkFAQ">Preguntas frecuentes.</span>
+            </a>
+          </li>
+        </ul>
+      </header>
+
+      <!-- Site content -->
+      <main class="container row z-depth-2">
+
+        <!-- Campaign -->
+        <article id="campaign" class="col s12 m12 l8" style="margin-bottom: 0.75rem;">
+          <h1 style="display: none;">Campaign</h1>
+
+          <!-- Campaign overview -->
+          <section id="overview">
+            <h2 style="display: none;">Campaign overview</h2>
+            <div style="float: left;">
+              <span class="valign-wrapper" style="float: left;">
+                <i class="icon-access_time"></i>
+                <span id="timerLabel" data-string="expiredLabel">Expirada</span>
+                <b id="campaignExpiration">hace 2 meses</b>
+              </span>
+            </div>
+            <div style="float: right;">
+              <span class="valign-wrapper" style="float: left;">
+                <i class="icon-bookmark_border"></i>
+                <span id="compaignContributionAmount">7.00</span>
+                <i>/</i>
+                <span id="campaignRequestAmount">1000.00</span>
+                <b>BCH</b>
+              </span>
+            </div>
+            <div class="progress">
+              <div class="determinate" id="campaignProgressBar" style="width: 0.7%;"></div>
+              <div class="determinate" id="campaignContributionBar" style="left: 0.7%; width: 0.16%;"></div>
+            </div>
+          </section>
+
+          <!-- Campaign heading -->
+          <header id="campaignAbstract"><h1 id="bitcoin-abc-2020-campaña-de-financiamiento">Bitcoin ABC 2020 Campaña de Financiamiento</h1>
+            <p>Bitcoin ABC desarrolla, mantiene y asegura la infraestructura más esencial de Bitcoin Cash, nuestro software de nodo completo que se utiliza para minar casi todos los bloques de Bitcoin Cash.</p>
+            <p>Actualmente, el 90% del tiempo de los desarrolladores de Bitcoin ABC se absorbe manteniendo Bitcoin Cash seguro, funcionando y actualizado. Debemos dedicar la mayoría de nuestros recursos mínimos a "correr en el lugar" sin poder avanzar mucho. Esto se debe a que tenemos que dar prioridad a asegurar que la red de Bitcoin Cash trascienda los cuellos de botella que aparecen debido a la mayor demanda de uso de Bitcoin Cash y se mantenga actualizada con la rápida evolución del Internet.</p>
+            <p>El progreso en las nuevas características de escalabilidad de Bitcoin Cash apenas se registra en nuestra carga de trabajo en este momento. La hoja de ruta de Bitcoin Cash requiere cambios importantes en la base de código. Estos cambios requerirán responsabilidades de mantenimiento continuo mucho mayores que las que tenemos ahora.</p>
+            <p>La buena noticia es que el trabajo que Bitcoin ABC ha completado hasta ahora (en backports, limpieza de deuda técnica, implementación de infraestructura de prueba automatizada y más) nos tiene bien posicionados ahora para avanzar rápidamente en nuevas características y mejoras significativas al protocolo de Bitcoin Cash.</p>
+            <p>Conseguir una financiación sostenida adecuada nos permitirá asumir estas obligaciones.</p>
+            <p>Bitcoin Cash debe escalar para cumplir con las demandas de pagos diarios de miles de millones de usuarios. Debemos hacer realidad la visión del efectivo electrónico P2P resistente a la censura para el mundo.</p>
+            <p>Necesitamos tu apoyo para aumentar la escalabilidad de Bitcoin Cash. Solo podemos hacer esto juntos.</p>
+            <p>¿Te unes?</p>
+          </header>
+
+          <!-- Campaign donation form -->
+          <fieldset id="donateField" class="row null">
+            <div id="donateStatus" class="col s12 m12 l12" style="text-align: center;" data-string="statusExpired">La campaña ha expirado sin ser financiada.</div>
+
+            <div id="donateForm" class="col s12 m12 l12 hidden">
+              <div class="input-field col s1 m1 l1" style="padding: 0;">
+                <i style="display: inline-block; width: 3rem; height: 3rem; text-align: center; opacity: 0.50; font-size: 2.25rem; line-height: 3.25rem;" class="icon-attach_money"></i>
+              </div>
+              <div class="input-field col s11 m5 l6" style="padding: 0; text-align: center;">
+                <input type="range" min="0.80" max="100" value="0" step="0.20" class="slider" id="donationSlider" style="height: 3rem; padding: 0; width: calc(100% - 2rem); margin: 0rem;">
+              </div>
+              <div class="input-field col s12 m6 l5" style="padding: 0 0.75rem; margin: 0.75rem 0rem;">
+                <button id="donateButton" class="btn waves-effect waves-light green" style="width: 100%; padding: 0; margin: 0rem;" disabled="">
+                  <span id="donateText" data-string="donateText">Promete</span>
+                  <span id="donationAmount" data-satoshis="0">0 BCH (0.00 EUR)</span>
+                </button>
+              </div>
+            </div>
+
+            <div id="donateSection" class="hidden col s12 m12">
+              <div class="col" style="background-color: white; border-radius: 0.25rem; border: 1px solid rgba(0, 0, 0, 0.31); padding-bottom: 1.5rem; padding-top: 0.75rem;">
+                <div class="col s12 m12 l12" style="margin-top: 0.75rem;">
+                  <div class="row" style="display: flex; flex-direction: column; justify-content: center; height: 10.50rem; padding: 1rem; margin: 0rem; margin-top: 0.5rem; border: 1px solid rgb(169, 169, 169); box-shadow: inset 0rem 0.10rem 0.25rem rgba(0, 0, 0, 0.13);">
+                    <div class="input-field col s12 m12 l12" style="">
+                      <i style="opacity: 0.50; font-size: 2.25rem; line-height: 2.25rem;" class="icon-person_outline prefix"></i>
+                      <input id="contributionName" type="text" maxlength="24">
+                      <label for="contributionName" data-string="usernameLabel">Nombre (opcional)</label>
+                    </div>
+
+                    <div class="input-field col s12 m12 l12" style="">
+                      <i style="opacity: 0.50; font-size: 2.00rem; line-height: 2.50rem;" class="icon-chat_bubble_outline prefix"></i>
+                      <input id="contributionComment" type="text" maxlength="120">
+                      <label for="contributionComment" data-string="commentLabel">Commentario (opcional)</label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col s12 m12 l3" style="margin-top: 0.75rem;">
+                  <small style="display: inline-block; width: 100%; text-align: center;" data-string="copyLabel">1. Copiar detalles</small>
+                  <textarea rows="5" id="template" name="template" style="height: 7rem; font-family: monospace; font-size: small; margin: 0; margin-top: 0.5rem; padding: 1rem; background-color: white;">ewAiAG8AdQB0AHAAdQB0AHMAIgA6AFsAewAiAHYAYQBsAHUAZQAiADoAMQAwADAAMAAwADAAMAAwADAAMAAwADAALAAiAGEAZABkAHIAZQBzAHMAIgA6ACIAYgBpAHQAYwBvAGkAbgBjAGEAcwBoADoAcABxAHkANwAzAG0AcQA1AGUAbQBoAHoAagBjAHMAOAA3AG4AYQA0ADYAegBtAHIAbAAwAHcAbgBwAHgANQB3AG0AdQBkAHAAMgBzAHcAegB6AHkAIgB9AF0ALAAiAGQAYQB0AGEAIgA6AHsAIgBhAGwAaQBhAHMAIgA6ACIAIgAsACIAYwBvAG0AbQBlAG4AdAAiADoAIgAiAH0ALAAiAGQAbwBuAGEAdABpAG8AbgAiADoAewAiAGEAbQBvAHUAbgB0ACIAOgAwAH0ALAAiAGUAeABwAGkAcgBlAHMAIgA6ADEANQA4ADgAOQA4ADIAMwA5ADkAfQA=</textarea>
+                  <button id="copyTemplateButton" class="btn waves-effect waves-light green" style="width: 100%;" data-string="copyButton">Copiar detalles</button>
+                </div>
+                <div class="col s12 m12 l6" style="margin-top: 0.75rem;">
+                  <small style="display: inline-block; width: 100%; text-align: center;" data-string="instructionsLabel">2. Preparar promesa</small>
+                  <p id="instructions" style="display: flex; justify-content: center; align-items: center; text-align: center; font-size: small; height: 7rem; padding: 1rem; margin-bottom: 7px; margin-top: 0.5rem; border: 1px solid rgb(169, 169, 169);" data-string="instructions">Instala el plugin para la cartera desktop Electron-Cash y usa la pestaña flipstarter para preparar tu promesa.</p>
+                  <div style="display: flex; align-items: center; justify-content: space-evenly;">
+                    <a id="downloadButton" class="btn" style="display: flex; align-items: center; justify-content: flex-start; background-color: transparent; color: black; box-shadow: none;" href="https://gitlab.com/flipstarter/flipstarter-electron-cash/uploads/a34641f9863164e82a6ab72314a02311/flipstarter-1.2.zip">
+                      <i class="icon-download"></i>
+                      <span style="margin-left: 0.25rem;" data-string="downloadText">Descargar</span>
+                    </a>
+                    <a id="linkInstructionsButton" class="btn" target="_blank" style="display: flex; align-items: center; justify-content: flex-start; background-color: transparent; color: black; box-shadow: none;" href="https://read.cash/@flipstarter/how-to-support-a-flipstarter-campaign-f27240d9">
+                      <i class="icon-info"></i>
+                      <span style="margin-left: 0.25rem;" data-string="instructionLink">Instrucciones</span>
+                    </a>
+                  </div>
+                </div>
+                <div class="col s12 m12 l3" style="margin-top: 0.75rem;">
+                  <small style="display: inline-block; width: 100%; text-align: center;" data-string="commitLabel">3. Pegar promesa</small>
+                  <textarea rows="5" id="commitment" name="commitment" data-placeholder="PasteHere" style="height: 7rem; font-family: monospace; font-size: small; margin: 0; margin-top: 0.5rem; padding: 1rem; background-color: white;" placeholder="Pegar aquí"></textarea>
+                  <button id="commitTransaction" class="btn waves-effect waves-light green" style="width: 100%;" disabled="disabled" data-string="commitButton">Enviar promesa</button>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- Campaign details. -->
+          <section id="campaignDetails" class="row"><p>Favor visitar a <a href="https://fund.bitcoinabc.org/">https://fund.bitcoinabc.org/</a> para obtener todos los detalles, incluyendo nuestro plan de negocios, presupuesto y cronograma de entrega.</p>
+            <p>Dirección alternativa para donar fondos que luego serán enviados al flipstarter: <code>prmxugxz63ersdpnuka9d73lpsmr966uay0rxhqewx</code>
+            </p>
+            <img alt="QR" src="img/abc-qr.png">
+          </section>
+        </article>
+
+        <!-- Campaign sidebar -->
+        <aside class="col s12 m12 l4">
+          <section>
+            <h3 style="float: left;">
+              <span class="valign-wrapper" style="float: left;">
+                <i class="icon-face"></i>
+                <b id="campaignRecipientCount">1</b>
+                <span data-string="recipientsLabel">destinatarios</span>
+              </span>
+            </h3>
+            <hr>
+            <ul id="recipientList" class="row" style="margin-bottom: 3rem;"><li class="col s6 m6 l12">
+              <a href="https://fund.bitcoinabc.org/">
+                <img src="https://fund.bitcoinabc.org/wp-content/uploads/2020/04/BitcoinABC-flipstarter.png" alt="Bitcoin ABC">
+                <span>
+                  <b>Bitcoin ABC</b>
+                  <i>1&nbsp;000 BCH</i>
+                </span>
+              </a>
+            </li></ul>
+          </section>
+
+          <section>
+            <h3 style="float: left;">
+              <span class="valign-wrapper" style="float: left;">
+                <i class="icon-favorite_border"></i>
+                <b id="campaignContributorCount">4</b>
+                <span data-string="contributorsLabel">contribuidores</span>
+              </span>
+            </h3>
+            <hr>
+            <ul id="contributionList"><li>
+              <div>
+                <div class="contributionWaves" style="animation-delay: -4.44s; background-position: 0px 3.59rem;"></div>
+                <div class="contributionDisplay"></div>
+                <span class="contributionPercent">0%</span>
+              </div>
+              <span>
+                <span>
+                  <b class="contributionAlias" style="opacity: 0.37;">Anonymous</b>
+                  <small class="contributionAmount">2.02 BCH</small>
+                </span>
+                <q class="contributionComment" style="display: none;"></q>
+              </span>
+            </li><li>
+              <div>
+                <div class="contributionWaves" style="animation-delay: -6.7s; background-position: 0px 3.59rem;"></div>
+                <div class="contributionDisplay"></div>
+                <span class="contributionPercent">0%</span>
+              </div>
+              <span>
+                <span>
+                  <b class="contributionAlias">gm</b>
+                  <small class="contributionAmount">1.67 BCH</small>
+                </span>
+                <q class="contributionComment">for ABC</q>
+              </span>
+            </li><li>
+              <div>
+                <div class="contributionWaves" style="animation-delay: -8.63s; background-position: 0px 3.59rem;"></div>
+                <div class="contributionDisplay"></div>
+                <span class="contributionPercent">0%</span>
+              </div>
+              <span>
+                <span>
+                  <b class="contributionAlias">Weipin Xia</b>
+                  <small class="contributionAmount">1.67 BCH</small>
+                </span>
+                <q class="contributionComment" style="display: none;"></q>
+              </span>
+            </li><li>
+              <div>
+                <div class="contributionWaves" style="animation-delay: -9.96s; background-position: 0px 3.59rem;"></div>
+                <div class="contributionDisplay"></div>
+                <span class="contributionPercent">0%</span>
+              </div>
+              <span>
+                <span>
+                  <b class="contributionAlias">fmarcosh</b>
+                  <small class="contributionAmount">1.64 BCH</small>
+                </span>
+                <q class="contributionComment">Bitcoin Cash, el dinero de, por y para todos.</q>
+              </span>
+            </li></ul>
+          </section>
+        </aside>
+      </main>
+
+    </div>
+  </div>
+
+  <!-- Site footer -->
+  <footer class="page-footer green">
+    <div class="container">
+      <div class="row">
+        <div class="col l5 s12">
+          <h5 class="white-text" data-string="footerLabel">Nosotros</h5>
+          <p class="grey-text text-lighten-4" data-string="footerText">Somos un grupo de voluntarios que creemos en la importancia de establecer métodos de financiación voluntaria efectivos y sostenibles. Flipstarter es un ejemplo de cómo recaudar fondos sin custodia y con mínima confianza involucrada.</p>
+        </div>
+        <div class="col l2 m4 s4 offset-l1">
+          <h5 class="white-text" data-string="socialLabel">Social</h5>
+          <ul>
+            <li>
+              <a class="white-text valign-wrapper" href="https://twitter.com/flipstartercash">
+                <i class="icon-chat"></i>
+                &nbsp;
+                <span data-string="twitter">Twitter</span>
+              </a>
+            </li>
+            <li>
+              <a class="white-text valign-wrapper" href="https://read.cash/@flipstarter">
+                <i class="icon-info"></i>
+                &nbsp;
+                <span data-string="read.cash">Read.cash</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="col l2 m4 s4">
+          <h5 class="white-text" data-string="contactLabel">Contacto</h5>
+          <ul>
+            <li>
+              <a class="white-text valign-wrapper" href="mailto:info@flipstarter.cash">
+                <i class="icon-email"></i>
+                &nbsp;
+                <span data-string="email">Email</span>
+              </a>
+            </li>
+            <li>
+              <a class="white-text valign-wrapper" href="mailto:security@flipstarter.cash">
+                <i class="icon-security"></i>
+                &nbsp;
+                <span data-string="security">Securidad</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="col l2 m4 s4">
+          <h5 class="white-text" data-string="codeLabel">Código</h5>
+          <ul>
+            <li>
+              <a class="white-text valign-wrapper" href="https://gitlab.com/groups/flipstarter/-/issues">
+                <i class="icon-report_problem"></i>
+                &nbsp;
+                <span data-string="issues">Problemas</span>
+              </a>
+            </li>
+            <li>
+              <a class="white-text valign-wrapper" href="https://gitlab.com/flipstarter">
+                <i class="icon-code"></i>
+                &nbsp;
+                <span data-string="source">Codigo fuente</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container center" style="opacity: 0.65;">
+        <span data-string="copyright">El sitio web y los activos cuentan con derechos de autor por los respectivos autores en 2020, con licenciados para uso público bajo la</span>
+        <a href="https://gitlab.com/emergent-reasons/funding-traction/blob/master/LICENSE" style="color: inherit; border-bottom: 1px dashed rgba(256, 256, 256, 0.33)" data-string="license">licencia MIT.</a>
+      </div>
+    </div>
+  </footer>
+
+  <div id="languageSelector" class="fixed-action-btn">
+    <b id="currentLanguage" data-string="changeLanguage">
+      <a href="/">🇬🇧</a>
+      <a href="/zh">🇨🇳</a>
+      <a href="/es">🇪🇸</a>
+    </b>
+  </div>
+
+  <!-- -->
+  <template id="recipientTemplate">
+    <li class="col s6 m6 l12">
+      <a>
+        <img>
+        <span>
+          <b></b>
+          <i></i>
+        </span>
+      </a>
+    </li>
+  </template>
+  <template id="contributionTemplate">
+    <li>
+      <div>
+        <div class="contributionWaves"></div>
+        <div class="contributionDisplay"></div>
+        <span class="contributionPercent"></span>
+      </div>
+      <span>
+        <span>
+          <b class="contributionAlias"></b>
+          <small class="contributionAmount"></small>
+        </span>
+        <q class="contributionComment"></q>
+      </span>
+    </li>
+  </template>
+  <template id="emptyContributionMessage">
+    <li style="display: block; text-align: center; color: rgba(0, 0, 0, 0.5); padding: 2rem;">
+      <i data-string="contributorEmpty1">Nadie ha hecho una promesa todavía.</i>
+      <br>
+      <i data-string="contributorEmpty2">Puedes ser el primero.</i>
+    </li>
+  </template>
+
+  <!-- Load the javascript as the last step to ensure fastest load time. -->
+  <!-- <script src="js/application.js"></script> -->
+
+  <!-- -->
+  <audio src="snd/applause.mp3" id="applause"></audio>
+
+</body>
+</html>
